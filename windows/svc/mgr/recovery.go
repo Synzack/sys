@@ -12,8 +12,8 @@ import (
 	"time"
 	"unsafe"
 
-	"golang.org/x/sys/internal/unsafeheader"
-	"golang.org/x/sys/windows"
+	"github.com/Synzack/sys/internal/unsafeheader"
+	"github.com/Synzack/sys/windows"
 )
 
 const (

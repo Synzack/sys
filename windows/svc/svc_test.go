@@ -17,8 +17,8 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/sys/windows/svc"
-	"golang.org/x/sys/windows/svc/mgr"
+	"github.com/Synzack/sys/windows/svc"
+	"github.com/Synzack/sys/windows/svc/mgr"
 )
 
 func getState(t *testing.T, s *mgr.Service) svc.State {

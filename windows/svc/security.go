@@ -11,7 +11,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"golang.org/x/sys/windows"
+	"github.com/Synzack/sys/windows"
 )
 
 func allocSid(subAuth0 uint32) (*windows.SID, error) {

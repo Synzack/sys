@@ -14,7 +14,7 @@ import (
 	"unicode/utf16"
 	"unsafe"
 
-	"golang.org/x/sys/internal/unsafeheader"
+	"github.com/Synzack/sys/internal/unsafeheader"
 )
 
 type Handle uintptr
