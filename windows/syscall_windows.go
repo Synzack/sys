@@ -320,6 +320,36 @@ func NewCallbackCDecl(fn interface{}) uintptr {
 //sys	GetProcessWorkingSetSizeEx(hProcess Handle, lpMinimumWorkingSetSize *uintptr, lpMaximumWorkingSetSize *uintptr, flags *uint32)
 //sys	SetProcessWorkingSetSizeEx(hProcess Handle, dwMinimumWorkingSetSize uintptr, dwMaximumWorkingSetSize uintptr, flags uint32) (err error)
 
+//Custom added. Many from https://github.com/BishopFox/sliver/tree/master/sliver/syscalls
+//sys 	GetProcessHeap() (procHeap Handle, err error) = kernel32.GetProcessHeap
+//sys 	HeapAlloc(hHeap Handle, dwFlags uint32, dwBytes uintptr) (lpMem uintptr, err error) = kernel32.HeapAlloc
+//sys 	VirtualAllocEx(hProcess Handle, lpAddress uintptr, dwSize uintptr, flAllocationType uint32, flProtect uint32) (addr uintptr, err error) = kernel32.VirtualAllocEx
+//sys 	WriteProcessMemory(hProcess Handle, lpBaseAddress uintptr, lpBuffer *byte, nSize uintptr, lpNumberOfBytesWritten *uintptr) (err error) = kernel32.WriteProcessMemory
+//sys 	VirtualProtectEx(hProcess Handle, lpAddress uintptr, dwSize uintptr, flNewProtect uint32, lpflOldProtect *uint32) (err error) = kernel32.VirtualProtectEx
+//sys 	QueueUserAPC(pfnAPC uintptr, hThread Handle, dwData uintptr) (err error) = kernel32.QueueUserAPC
+//sys 	HeapFree(hHeap Handle, dwFlags uint32, lpMem uintptr) (err error) = kernel32.HeapFree
+//sys 	CreateRemoteThread(hProcess Handle, lpThreadAttributes *SecurityAttributes, dwStackSize uint32, lpStartAddress uintptr, lpParameter uintptr, dwCreationFlags uint32, lpThreadId *uint32)(threadHandle Handle, err error) = kernel32.CreateRemoteThread
+//sys 	CreateThread(lpThreadAttributes *SecurityAttributes, dwStackSize uint32, lpStartAddress uintptr, lpParameter uintptr, dwCreationFlags uint32, lpThreadId *uint32)(threadHandle Handle, err error) = kernel32.CreateThread
+//sys 	GetExitCodeThread(hTread Handle, lpExitCode *uint32) (err error) = kernel32.GetExitCodeThread
+//sys 	RtlCopyMemory(Destination uintptr, Source uintptr, Length uintptr) (err error) = ntdll.RtlCopyMemory
+//sys 	MiniDumpWriteDump(hProcess Handle, pid uint32, hFile uintptr, dumpType uint32, exceptionParam uintptr, userStreamParam uintptr, callbackParam uintptr) (err error) = DbgHelp.MiniDumpWriteDump
+//sys 	ImpersonateLoggedOnUser(hToken Token) (err error) = advapi32.ImpersonateLoggedOnUser
+//sys 	LogonUser(lpszUsername *uint16, lpszDomain *uint16, lpszPassword *uint16, dwLogonType uint32, dwLogonProvider uint32, phToken *Token) (err error) = advapi32.LogonUserW
+//sys 	GetDC(HWND Handle) (HDC Handle, err error) = User32.GetDC
+//sys 	ReleaseDC(hWnd Handle, hDC Handle) (int uint32, err error) = User32.ReleaseDC
+//sys 	CreateCompatibleDC(hdc Handle) (HDC Handle, err error) =  Gdi32.CreateCompatibleDC
+//sys 	GetDesktopWindow() (HWND Handle, err error) = User32.GetDesktopWindow
+//sys 	DeleteDC(hdc Handle) (BOOL uint32, err error) = Gdi32.DeleteDC
+//sys 	CreateCompatibleBitmap(hdc Handle, cx int, cy int) (HBITMAP Handle, err error) = Gdi32.CreateCompatibleBitmap
+//sys 	DeleteObject(ho Handle) (BOOL uint32, err error) = Gdi32.DeleteObject
+//sys 	GlobalAlloc(uFlags uint, dwBytes uintptr) (HGLOBAL Handle, err error) = Kernel32.GlobalAlloc
+//sys 	GlobalFree(hMem Handle) (HGLOBAL Handle, err error) = Kernel32.GlobalFree
+//sys 	GlobalLock(hMem Handle) (LPVOID uintptr, err error) = Kernel32.GlobalLock
+//sys 	GlobalUnlock(hMem Handle) (BOOL uint32, err error) = Kernel32.GlobalUnlock
+//sys 	SelectObject(hdc Handle, h Handle) (HGDIOBJ Handle, err error) = Gdi32.SelectObject
+//sys 	BitBlt(hdc Handle, x uint32, y uint32, cx uint32, cy uint32, hdcSrc Handle, x1 uint32, y1 uint32, rop int32) (BOOL int, err error) = Gdi32.BitBlt
+//sys	GetDIBits(hdc Handle, hbm Handle, start uint32, cLines uint32, lpvBits uintptr, lpbmi uintptr, usage int) (ret int, err error) = Gdi32.GetDIBits
+
 // Volume Management Functions
 //sys	DefineDosDevice(flags uint32, deviceName *uint16, targetPath *uint16) (err error) = DefineDosDeviceW
 //sys	DeleteVolumeMountPoint(volumeMountPoint *uint16) (err error) = DeleteVolumeMountPointW
