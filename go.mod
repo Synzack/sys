@@ -1,3 +1,3 @@
-module github.com/Synzack/sys
+module github.com/synzack/sys
 
 go 1.12
