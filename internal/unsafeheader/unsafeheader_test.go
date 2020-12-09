@@ -10,7 +10,7 @@ import (
 	"testing"
 	"unsafe"
 
-	"golang.org/x/sys/internal/unsafeheader"
+	"github.com/Synzack/sys/internal/unsafeheader"
 )
 
 // TestTypeMatchesReflectType ensures that the name and layout of the

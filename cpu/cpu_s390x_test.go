@@ -9,7 +9,7 @@ import (
 	"testing"
 	"unsafe"
 
-	"golang.org/x/sys/cpu"
+	"github.com/Synzack/sys/cpu"
 )
 
 var s390xTests = []struct {
